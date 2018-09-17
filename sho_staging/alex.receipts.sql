@@ -1,3 +1,14 @@
+USE [sho_staging]
+GO
+/****** Object:  Table [alex].[receipts]   Script Date: 9/11/2018 9:33:57 AM ******/
+DROP TABLE [alex].[receipts]
+GO
+/****** Object:  Table [alex].[receipts]   Script Date: 9/11/2018 9:34:07 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
 CREATE TABLE [alex].[receipts](
 	[day_nbr] [varchar](15) NULL,
 	[locn_nbr] [varchar](10) NULL,
@@ -9,5 +20,5 @@ CREATE TABLE [alex].[receipts](
 	[rcp_un_qty] [varchar](10) NULL,
 	[rcp_cst_dlr] [varchar](10) NULL,
 	[rcp_sll_dlr] [varchar](10) NULL,
-	[rec_load_dt] [datetime] NOT NULL DEFAULT TIMESTAMP
+	[rec_load_dt] [datetime] NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ON [PRIMARY]
