@@ -2,13 +2,13 @@ SET NUMERIC_ROUNDABORT OFF;
 SET ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, ARITHABORT,  
     QUOTED_IDENTIFIER, ANSI_NULLS ON;  
 GO  
--- *** MEP 09/06/18 - Drop View if it Exists ***  
+-- *** MEP 09/19/18 - Drop View if it Exists ***  
 IF OBJECT_ID ('sales.vw_sales_by_fmt_div', 'view') IS NOT NULL  
 DROP VIEW sales.vw_sales_by_fmt_div ;  
 GO  
 
--- *** MEP 09/06/18 - Create View with Schema Binding ***
--- *** MEP 09/06/18 - Begin View SQL ***
+-- *** MEP 09/19/18 - Create View with Schema Binding ***
+-- *** MEP 09/19/18 - Begin View SQL ***
 CREATE VIEW sales.vw_sales_by_fmt_div
 WITH SCHEMABINDING  
 AS  
@@ -27,11 +27,11 @@ GROUP BY fact.sho_sales.trs_dt_sk_id, fact.sho_sales.prod_cat_div_sk_id, fact.sh
                          dim.location.location_name, dim.sho_location_formats.store_group_name, dim.sho_location_formats.store_supergroup_name, dim.sho_location_formats.location_format_name, 
                          dim.sho_location_formats.sho_location_format_sk_id, dim.location.location_sk_id
 GO  
--- *** MEP 09/06/18 - End View SQL ***
+-- *** MEP 09/19/18 - End View SQL ***
 
 
--- *** MEP 09/06/18 - Create a Unique Clustered Index on View *** 
--- *** MEP 09/06/18 - Queries can use this Indexed/Materialized View even if not specified in From Clause ***
+-- *** MEP 09/19/18 - Create a Unique Clustered Index on View *** 
+-- *** MEP 09/19/18 - Queries can use this Indexed/Materialized View even if not specified in From Clause ***
 CREATE UNIQUE CLUSTERED INDEX PK_vw_sales_by_fmt_div
     ON sales.vw_sales_by_fmt_div (sho_location_format_sk_id,trs_dt_sk_id,location_sk_id,prod_cat_div_sk_id);  
 GO  
