@@ -9,7 +9,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [netsuite].[product](
-[Date Created] [varchar] (20) NULL,
+[cat_div_sk_id] bigint,
 [Inactive] [varchar] (5) NULL,
 [Contract Item Type] [varchar] (50) NULL,
 [Item Brand] [varchar] (50) NULL,
@@ -18,14 +18,14 @@ CREATE TABLE [netsuite].[product](
 [Item Mfgn Number] [varchar] (20) NULL,
 [UPC Code] [varchar] (20) NULL,
 [SKU #] [varchar] (10) NULL,
-[Item No] [varchar] (20) NULL,
+[Item No] [varchar] (50) NULL,
 [Description] [varchar] (100) NULL,
 [Category No] [varchar] (10) NULL,
 [Category Name] [varchar] (50) NULL,
 [Division #] [varchar] (10) NULL,
 [Div No] [varchar] (10) NULL,
 [Div Name] [varchar] (50) NULL,
-[Line No] [varchar] (20) NULL,
+[Line No] [varchar] (50) NULL,
 [Line Name] [varchar] (50) NULL,
 [Subline No] [varchar] (20) NULL,
 [Subline Name] [varchar] (50) NULL,
