@@ -12,10 +12,15 @@ GO
 
 CREATE VIEW [sales].[vw_daily_fmt_div_sales_tyly_fact]
 AS  
+CREATE VIEW [sales].[vw_daily_fmt_div_sales_tyly_fact]
+AS  
 SELECT        	fd.sho_location_format_sk_id, 
 				sf_ty.trs_dt_sk_id, 
 				sf_ty.prod_cat_div_sk_id, 
 				sf_ty.trs_dt, 
+				cd.fiscal_year_nbr,
+				cd.fiscal_month_nbr,
+				cd.fiscal_week_nbr,
 				sf_ty.pos_source_system, 
 				fd.store_group_name, 
 				fd.store_supergroup_name, 
@@ -76,7 +81,10 @@ FROM            fact.sho_sales sf_ty
 GROUP BY 		fd.sho_location_format_sk_id, 
 				sf_ty.trs_dt_sk_id, 
 				sf_ty.prod_cat_div_sk_id, 
-				sf_ty.trs_dt, 
+				sf_ty.trs_dt,
+				cd.fiscal_year_nbr,
+				cd.fiscal_month_nbr,
+				cd.fiscal_week_nbr,
 				sf_ty.pos_source_system, 
 				fd.store_group_name, 
 				fd.store_supergroup_name, 
@@ -86,5 +94,4 @@ GROUP BY 		fd.sho_location_format_sk_id,
 				dd.div_name,
 				dd.cat_nbr, 
 				dd.cat_name
-
 go
