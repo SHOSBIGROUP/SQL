@@ -12,6 +12,8 @@ GO
 
 CREATE VIEW [sales].[vw_daily_fmt_div_sales_tyly_fact]
 AS  
+CREATE VIEW [sales].[vw_daily_fmt_div_sales_tyly_fact]
+AS  
 SELECT        	fd.sho_location_format_sk_id, 
 				sf_ty.trs_dt_sk_id, 
 				sf_ty.prod_cat_div_sk_id, 
@@ -93,5 +95,4 @@ GROUP BY 		fd.sho_location_format_sk_id,
 				dd.div_name,
 				dd.cat_nbr, 
 				dd.cat_name
-
 go
